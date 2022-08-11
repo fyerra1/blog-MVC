@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Recipe, User } = require('../models');
+const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const recipeData = await Recipe.findAll({
+    const blogData = await Blog.findAll({
       include: [
         {
           model: User,
@@ -15,11 +15,11 @@ router.get('/', withAuth, async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      recipes, 
+      blogs, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -30,21 +30,21 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Get all recipes and JOIN with user data
-    const recipeData = await Recipe.findAll({
+    const blogData = await Blog.findAll({
       where: { user_id: req.session.user_id}
     });
 
     // Serialize data so the template can read it
-    let recipes;
+    let blogs;
     try {
-      recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+      blogs = blogData.map((blog) => blog.get({ plain: true }));
     } catch (err) {
-      recipes = [recipeData.get({ plain: true })];
+      blogs = [blogData.get({ plain: true })];
     }
     
     // Pass serialized data and session flag into template
     res.render('profile', { 
-      recipes,
+      blogs,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -71,17 +71,17 @@ router.get('/add-recipes', withAuth, (req, res) => {
 
 router.get('/update-recipes/:id', withAuth, async (req, res) => {
 
-  const recipeId = req.params.id;
+  const blogId = req.params.id;
 
   try {
-    const recipeDatum = await Recipe.findByPk(recipeId, {});
+    const blogDatum = await Blog.findByPk(blogId, {});
 
     // Serialize data so the template can read it
-    recipe = recipeDatum.get({ plain: true });
+    blog = blogDatum.get({ plain: true });
 
     // Pass serialized data and session flag into template
     res.render('updaterecipe', { 
-      recipe, 
+      blog, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -91,17 +91,17 @@ router.get('/update-recipes/:id', withAuth, async (req, res) => {
 
 router.get('/view-recipe/:id', withAuth, async (req, res) => {
 
-  const recipeId = req.params.id;
+  const blogId = req.params.id;
 
   try {
-    const recipeDatum = await Recipe.findByPk(recipeId, {});
+    const blogDatum = await Blog.findByPk(blogId, {});
 
     // Serialize data so the template can read it
-    recipe = recipeDatum.get({ plain: true });
+    blog = blogDatum.get({ plain: true });
 
     // Pass serialized data and session flag into template
     res.render('viewrecipe', { 
-      recipe, 
+      blog, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {

@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const Recipe = require('../../models/Recipe');
+const Blog = require('../../models/Blog');
 // const withAutH = require('../utils/auth');
 
 // DELETE recipe with specified name
 router.delete('/:id', async (req, res) => {
-  const recipeId = req.params.id;
+  const blogId = req.params.id;
   try {
-    const responseData = await Recipe.destroy({
+    const responseData = await Blog.destroy({
       where: {
-        id: recipeId,
+        id: blogId,
         user_id: req.session.user_id,
       },
     });
@@ -21,12 +21,12 @@ router.delete('/:id', async (req, res) => {
 // GET all recipes
 router.get('/', async (req, res) => {
   try {
-    const recipeData = await Recipe.findAll();
-    if (!recipeData) {
-      res.status(404).json({ message: 'No recipes in the database!' });
+    const blogData = await Blog.findAll();
+    if (!blogData) {
+      res.status(404).json({ message: 'No blogs in the database!' });
       return;
     }
-    res.status(200).json(recipeData);
+    res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -35,12 +35,12 @@ router.get('/', async (req, res) => {
 // GET one recipe
 router.get('/:id', async (req, res) => {
     try {
-      const recipeData = await Recipe.findByPk(req.params.id);
-      if (!recipeData) {
-        res.status(404).json({ message: 'No recipe with this id!' });
+      const blogData = await Blog.findByPk(req.params.id);
+      if (!blogData) {
+        res.status(404).json({ message: 'No blog with this id!' });
         return;
       }
-      res.status(200).json(recipeData);
+      res.status(200).json(blogData);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -48,12 +48,12 @@ router.get('/:id', async (req, res) => {
 
   router.post('/', async (req, res) => {
     try {
-      const newRecipe = await Recipe.create({
+      const newBlog = await Blog.create({
         ...req.body,
         user_id: req.session.user_id,
       });
   
-      res.status(200).json(newRecipe);
+      res.status(200).json(newBlog);
     } catch (err) {
       res.status(400).json(err);
     }
@@ -61,7 +61,7 @@ router.get('/:id', async (req, res) => {
 
   router.put('/:id', async (req, res) => {
     try {
-      const recipeData = await Recipe.update(
+      const blogData = await Blog.update(
         {
           title: req.body.title,
           content: req.body.content
@@ -72,7 +72,7 @@ router.get('/:id', async (req, res) => {
           }
         }
       );
-      res.status(200).json(recipeData);
+      res.status(200).json(blogData);
     } catch (err) {
       res.status(400).json(err);
     }

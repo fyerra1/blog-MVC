@@ -1,14 +1,14 @@
 const recipeHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#recipe-title').value.trim();
-  const ingredients = document.querySelector('#recipe-ingredients').value.trim();
-  const instructions = document.querySelector('#recipe-instructions').value.trim();
+  const title = document.querySelector('#recipe-title').value.trim();
+  const content = document.querySelector('#recipe-ingredients').value.trim();
+  // const instructions = document.querySelector('#recipe-instructions').value.trim();
 
-  if (name && ingredients && instructions) {
-    const response = await fetch(`/api/recipes`, {
+  if (title && content) {
+    const response = await fetch(`/api/blogs`, {
       method: 'POST',
-      body: JSON.stringify({ name, ingredients, instructions }),
+      body: JSON.stringify({ title, content }),
       headers: {
         'Content-Type': 'application/json',
       },

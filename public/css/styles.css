@@ -9,7 +9,7 @@ nav {
 }
 
 body{
-    background-image: url('../assets/vegetables\ copy.jpg'); 
+    /* background-image: url('../assets/vegetables\ copy.jpg');  */
     min-height:300vh;
     max-height: 100,000vh;
     background-size:cover;

@@ -1,0 +1,36 @@
+<div class="columns project-list">
+  {{#each recipes as |recipe| }}
+    <div class="card column is-one-fifth column-gap is-vcentered" data-card-id="{{recipe.id}}">
+      <div class="card-image" id="recipe-card">
+         <figure class="image is-3by3" data-card-id="{{recipe.id}}">
+          <img src={{{get_icon}}} data-card-id="{{recipe.id}}">
+          </figure>
+        <header class="card-header" data-card-id="{{recipe.id}}">
+          <p class="card-header-title" id="recipe-name" data-card-id="{{recipe.id}}">
+            {{recipe.name}}
+          </p>
+        </header> 
+        <footer class="card-footer">
+          <a href="/api/update-recipes/{{recipe.id}}" class="edit-btn card-footer-item" data-edit-id="{{recipe.id}}">
+            Edit
+          </a>
+          <a class="card-footer-item delete-btn" data-id="{{recipe.id}}">
+            Delete
+          </a>
+        </footer>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+    
+<footer>
+       <div class="content has-text-centered">
+         <a href="/add-recipes">
+         <button class="button is-primary is-light" id="add-recipe">Add Recipe</button>
+        </a>
+        <p class="has-text-white">fruit icons PNG Designed By lancarrejekiamin from <a href="https://pngtree.com"> Pngtree.com</a></p>
+      </div>
+    </footer>
+
+<script src="./js/cardHandler.js"></script>

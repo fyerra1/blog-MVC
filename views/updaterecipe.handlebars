@@ -1,0 +1,31 @@
+<section class="columns">
+<div class="column">
+  <form class="box">
+    <h2 class="title">Update Recipe</h2>
+    <div class="field">
+      <label class="label">Recipe Title</label>
+      <div class="control">
+        <input class="input" type="text" id="recipe-title" value="{{recipe.name}}">
+      </div>
+    </div>
+  
+    <div class="field">
+      <label class="label">Ingredients</label>
+      <div class="control">
+        <textarea class="textarea" type="text" id="recipe-ingredients">{{recipe.ingredients}}</textarea>
+      </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Instructions</label>
+        <div class="control">
+          <textarea class="textarea" type="text" id="recipe-instructions">{{recipe.instructions}}</textarea>
+        </div>
+      </div>
+  
+    <button type="submit" class="button is-primary" id="submit" data-id="{{recipe.id}}">+ Update Recipe</button>
+  </form>
+</div>
+</section>
+
+<script src="/js/updateRecipe.js"></script>

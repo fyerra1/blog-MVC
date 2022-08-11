@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recipe Saver</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-start">
+        <a class="navbar-item" href="">
+          <h1 class="title">Recipe Saver</h1>
+        </a>
+    
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-is-transparent">
+        <div class="navbar-end">
+          <a class="navbar-item" href="">
+            Home
+          </a>
+    
+          <a class="navbar-item" href="">
+            Profile
+          </a>
+
+          <a class="navbar-item" href="">
+            Log in
+          </a>
+    
+        </div>
+    
+        
+      </div>
+    </nav>
+  <section class="section columns">
+    <div class="column">
+      <form class="box">
+        <h2 class="title">Create New Recipe</h2>
+        <div class="field">
+          <label class="label">Recipe Title</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="e.g. Grandma's Best Soup" id="recipe-name" name="recipe-name">
+          </div>
+        </div>
+      
+        <div class="field">
+          <label class="label">Ingredients</label>
+          <div class="control">
+            <textarea class="textarea" type="text" placeholder="e.g. 1 bell pepper, 1 tsp sugar" id="ingredients" name="ingredients"></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Instructions</label>
+            <div class="control">
+              <textarea class="textarea" type="text" placeholder="e.g. In a medium bowl, combine..." id="instructions" name="instructions"></textarea>
+            </div>
+          </div>
+      
+        <button class="button is-primary" type="submit">+ Add Recipe</button>
+      </form>
+    </div>
+
+  </section>
+  </body>
+
+  <script src="./js/recipeForm.js"></script>
+</html>

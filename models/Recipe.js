@@ -11,15 +11,12 @@ Recipe.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        title: {
             type: DataTypes.STRING,
             allowNull:false,
         },
-        ingredients: {
+        content: {
             type: DataTypes.TEXT, 
-        },
-        instructions:{
-            type: DataTypes.TEXT,
         },
         user_id: {
             type: DataTypes.INTEGER,

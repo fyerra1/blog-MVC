@@ -1,22 +1,18 @@
 [
     {
-        "name": "Chicken wings",
-        "ingredients": "One bag of frozen chicken wings",
-        "instructions": "Heat them up, then eat"
+        "title": "Chicken wings",
+        "content": "One bag of frozen chicken wings"
     },
     {
-        "name": "Hot pockets",
-        "ingredients": "One frozen hotpockets",
-        "instructions": "Heat it up, burn your mouth"
+        "title": "Hot pockets",
+        "content": "One frozen hotpockets"
     },
     {
-        "name": "Krabby patty",
-        "ingredients": "One frozen patty, fresh lettuce, crisp onions, two tomato slices, one slice of sea cheese, two pickels, mustard ketchup, and the Krabby Patty secret formula",
-        "instructions": "Let Spongebob make it for you"
+        "title": "Krabby patty",
+        "content": "One frozen patty, fresh lettuce, crisp onions, two tomato slices, one slice of sea cheese, two pickels, mustard ketchup, and the Krabby Patty secret formula"
     },
     {
-        "name": "McChikcen",
-        "ingredients": "McChicken Patty. McChicken Patty, Regular Bun, Regular Bun, Shredded Lettuce, Shredded Lettuce, Mayonnaise",
-        "instructions": "Order 2"
+        "title": "McChikcen",
+        "content": "McChicken Patty. McChicken Patty, Regular Bun, Regular Bun, Shredded Lettuce, Shredded Lettuce, Mayonnaise"
     }  
 ]

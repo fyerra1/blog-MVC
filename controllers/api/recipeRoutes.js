@@ -63,9 +63,8 @@ router.get('/:id', async (req, res) => {
     try {
       const recipeData = await Recipe.update(
         {
-          name: req.body.name,
-          ingredients: req.body.ingredients,
-          instructions: req.body.instructions,
+          title: req.body.title,
+          content: req.body.content
         },
         {
           where: {

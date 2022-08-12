@@ -8,32 +8,28 @@
       </div>
     </div>
 </section>
-<div class="row" id="all-content">
-<!-- Loop over each object in the content array -->
-{{#each blogs as |blog| }}
-  <div class="col-12">
-
-    <div class="card my-3">
-      <div class="card-header">
-        <div class="row">
-          <h5 class="mb-2 col-6" id="comment" data-commentId="{{blog.id}}">
-            {{blog.title}}
-          </h5>
-          <div class="col-6">
-            <p class="float-right fs-6">
-              Created by {{blog.user.name}} on {{blog.date_created}}
-            </p>
-          </div>
+<div class="px-4 is-flex-direction-column columns project-list">
+  {{#each blogs as |blog| }}
+    <div class="card column column-gap is-vcentered" data-card-id="{{blog.id}}">
+      <div class="" id="recipe-card">
+        <div class="level">
+          <p class="py-4 has-text-weight-bold" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
+          <p>Posted by {{blog.user.name}} on {{blog.date_created}}</p>
         </div>
-      </div>
-      <div class="card-body">
-        <p>
-          {{blog.content}}
-        </p>
+        <p class="py-4">{{blog.content}}</p> 
       </div>
     </div>
-  </div>
-{{/each}}
+  {{/each}}
 </div>
+
+    
+<footer>
+       <div class="content has-text-centered">
+         <a href="/add-recipes">
+         <button class="button is-primary is-light" id="add-recipe">Add Post</button>
+        </a>
+        {{!-- <p class="has-text-white">fruit icons PNG Designed By lancarrejekiamin from <a href="https://pngtree.com"> Pngtree.com</a></p> --}}
+      </div>
+    </footer>
 
 

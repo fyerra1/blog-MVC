@@ -1,9 +1,9 @@
 <div class="px-4 is-flex-direction-column columns project-list">
   {{#each blogs as |blog| }}
-    <div class="card has-background-grey-light column column-gap is-vcentered" data-card-id="{{blog.id}}">
+    <div class="card column column-gap is-vcentered" data-card-id="{{blog.id}}">
       <div class="" id="recipe-card">
-        <div class="is-flex-direction-row">
-          <p class="py-4 has-background-grey-light" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
+        <div class="level">
+          <p class="py-4 has-text-weight-bold" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
           <p>Posted on {{blog.date_created}}</p>
         </div>
         <p class="py-4">{{blog.content}}</p> 

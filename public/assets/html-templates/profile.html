@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -33,7 +33,7 @@
       </div>
     </nav>
 
-    <section class="columns">
+    <section class="columns is-flex-direction-column">
     <a href="">
     <div class="card column m-5">
         <div class="card-image">
@@ -154,4 +154,38 @@
     </footer>
 
   </body>
-</html>
+</html> -->
+
+<div class="columns project-list is-flex-direction-column">
+  {{#each blogs as |blog| }}
+    <div class="card column is-one-fifth column-gap is-vcentered section is-large" data-card-id="{{blog.id}}">
+      <div class="" id="recipe-card">
+         {{!-- <figure class="image is-3by3" data-card-id="{{blog.id}}">
+          <img src={{{get_icon}}} data-card-id="{{blog.id}}">
+          </figure> --}}
+        <p class="" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
+        <p>{{blog.content}}</p> 
+        <footer class="card-footer">
+          <a href="/api/update-recipes/{{blog.id}}" class="edit-btn card-footer-item" data-edit-id="{{blog.id}}">
+            Edit
+          </a>
+          <a class="card-footer-item delete-btn" data-id="{{blog.id}}">
+            Delete
+          </a>
+        </footer>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+    
+<footer>
+       <div class="content has-text-centered">
+         <a href="/add-recipes">
+         <button class="button is-primary is-light" id="add-recipe">Add Post</button>
+        </a>
+        {{!-- <p class="has-text-white">fruit icons PNG Designed By lancarrejekiamin from <a href="https://pngtree.com"> Pngtree.com</a></p> --}}
+      </div>
+    </footer>
+
+<script src="./js/cardHandler.js"></script>

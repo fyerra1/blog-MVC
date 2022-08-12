@@ -8,6 +8,32 @@
       </div>
     </div>
 </section>
+<div class="row" id="all-content">
+<!-- Loop over each object in the content array -->
+{{#each blogs as |blog| }}
+  <div class="col-12">
 
+    <div class="card my-3">
+      <div class="card-header">
+        <div class="row">
+          <h5 class="mb-2 col-6" id="comment" data-commentId="{{blog.id}}">
+            {{blog.title}}
+          </h5>
+          <div class="col-6">
+            <p class="float-right fs-6">
+              Created by {{blog.user.name}} on {{blog.date_created}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>
+          {{blog.content}}
+        </p>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</div>
 
 

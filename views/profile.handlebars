@@ -1,15 +1,12 @@
-<div class="columns project-list">
+<div class="px-4 is-flex-direction-column columns project-list">
   {{#each blogs as |blog| }}
-    <div class="card column is-one-fifth column-gap is-vcentered" data-card-id="{{blog.id}}">
-      <div class="card-image" id="recipe-card">
-         <figure class="image is-3by3" data-card-id="{{blog.id}}">
-          <img src={{{get_icon}}} data-card-id="{{blog.id}}">
-          </figure>
-        <header class="card-header" data-card-id="{{blog.id}}">
-          <p class="card-header-title" id="recipe-name" data-card-id="{{blog.id}}">
-            {{blog.title}}
-          </p>
-        </header> 
+    <div class="card has-background-grey-light column column-gap is-vcentered" data-card-id="{{blog.id}}">
+      <div class="" id="recipe-card">
+        <div class="is-flex-direction-row">
+          <p class="py-4 has-background-grey-light" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
+          <p>Posted on {{blog.date_created}}</p>
+        </div>
+        <p class="py-4">{{blog.content}}</p> 
         <footer class="card-footer">
           <a href="/api/update-recipes/{{blog.id}}" class="edit-btn card-footer-item" data-edit-id="{{blog.id}}">
             Edit

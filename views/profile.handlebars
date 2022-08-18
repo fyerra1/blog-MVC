@@ -24,12 +24,16 @@
 <div class="px-4 is-flex-direction-column columns project-list">
       {{#each blogs as |blog| }}
     <div class="card column column-gap is-vcentered" data-card-id="{{blog.id}}">
-      <div class="" id="recipe-card">
-        <div class="level">
+      <div class="" id="recipe-card" data-card-id="{{blog.id}}">
+        <div class="level" data-card-id="{{blog.id}}">
           <p class="py-4 has-text-weight-bold" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
-          <p>Posted on {{blog.date_created}}</p>
+          <div class="level">
+            <p data-card-id="{{blog.id}}"> Posted on {{blog.date_created}}</p>
+            <button type="submit" class="button is-danger" id="submit" data-id="{{blog.id}}">Delete</button>
+          </div>
         </div>
-        <p class="py-4">{{blog.content}}</p> 
+        
+        {{!-- <p class="py-4">{{blog.content}}</p> 
         <footer class="card-footer">
           <a href="/api/update-recipes/{{blog.id}}" class="edit-btn card-footer-item" data-edit-id="{{blog.id}}">
             Edit
@@ -38,18 +42,13 @@
             Delete
           </a>
         </footer>
-      </div>
+      </div> --}}
     </div>
   {{/each}}
 </div>
 
-<footer>
-       <div class="content has-text-centered">
-         <a href="/add-recipes">
-         <button class="button is-primary is-light" id="add-recipe">Add Post</button>
-        </a>
-      </div>
-    </footer>
-
-{{!-- <script src="./../js/viewRecipe.js"></script> --}}
+  <div class="content has-text-centered">
+    <a href="/add-recipes"><button class="button is-primary is-light" id="add-recipe">Add Post</button></a>
+  </div>
+    
 <script src="./js/cardHandler.js"></script>

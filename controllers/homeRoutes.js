@@ -69,7 +69,7 @@ router.get('/add-recipes', withAuth, (req, res) => {
   });
 });
 
-router.get('/update-recipes/:id', withAuth, async (req, res) => {
+router.get('/update-post/:id', withAuth, async (req, res) => {
 
   const blogId = req.params.id;
 
@@ -80,7 +80,7 @@ router.get('/update-recipes/:id', withAuth, async (req, res) => {
     blog = blogDatum.get({ plain: true });
 
     // Pass serialized data and session flag into template
-    res.render('updaterecipe', { 
+    res.render('updatepost', { 
       blog, 
       logged_in: req.session.logged_in 
     });

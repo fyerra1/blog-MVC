@@ -1,31 +1,22 @@
-<section class="columns">
-<div class="column">
-  <form class="box">
-    <h2 class="title">Your Recipe</h2>
-    <div class="field">
-      <label class="label">Recipe Title</label>
-      <div class="control">
-        <h1>{{recipe.name}}</h1>
-      </div>
-    </div>
-  
-    <div class="field">
-      <label class="label">Ingredients</label>
-      <div class="control">
-        <p>{{recipe.ingredients}}</p>
-      </div>
-    </div>
-
-    <div class="field">
-        <label class="label">Instructions</label>
-        <div class="control">
-          <p>{{recipe.instructions}}</p>
+  {{#each blogs as |blog| }}
+    <div class="card column column-gap is-vcentered" data-card-id="{{blog.id}}">
+      <div class="" id="recipe-card">
+        <div class="level">
+          <p class="py-4 has-text-weight-bold" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
+          <p>Posted on {{blog.date_created}}</p>
         </div>
+        <p class="py-4">{{blog.content}}</p> 
+        <footer class="card-footer">
+          <a href="/api/update-recipes/{{blog.id}}" class="edit-btn card-footer-item" data-edit-id="{{blog.id}}">
+            Edit
+          </a>
+          <a class="card-footer-item delete-btn" data-id="{{blog.id}}">
+            Delete
+          </a>
+        </footer>
       </div>
-  
-    <button type="submit" class="button is-primary" id="submit" data-id="{{recipe.id}}">Edit Recipe</button>
-  </form>
+    </div>
+  {{/each}}
 </div>
-</section>
 
 <script src="./../js/viewRecipe.js"></script>

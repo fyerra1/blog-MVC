@@ -2,7 +2,7 @@ const cardHandler = async (event) => {
     event.preventDefault();
 
     const id = event.target.getAttribute('data-id');
-    const cardRecipeId = event.target.getAttribute('data-card-id');
+    const postId = event.target.getAttribute('data-card-id');
 
     if (id) {
         console.log(id)
@@ -15,9 +15,8 @@ const cardHandler = async (event) => {
         } else {
             alert('Failed to delete project');
         }
-    } else if (cardRecipeId){
-        console.log(cardRecipeId);
-        document.location.replace(`/update-post/${cardRecipeId}`);
+    } else if (postId){
+        document.location.replace(`/update-post/${postId}`);
     }
 
 };

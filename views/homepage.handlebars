@@ -1,4 +1,4 @@
-<section class="columns is-centered">
+{{!-- <section class="columns is-centered">
 <div class="column bulma-overlay-mixin" id="homepage">
       <div class="box has-text-centered">
         <h1 class="title">Welcome to Tech Blog!</h1>
@@ -7,7 +7,7 @@
         <p>To View, Edit, or Add to Your Blogs: Click "Profile" in the Navigation Bar</p>
       </div>
     </div>
-</section>
+</section> --}}
 <div class="px-4 is-flex-direction-column columns project-list">
   {{#each blogs as |blog| }}
     <div class="card column column-gap is-vcentered" data-card-id="{{blog.id}}">
@@ -23,13 +23,11 @@
 </div>
 
     
-<footer>
        <div class="content has-text-centered">
          <a href="/add-recipes">
          <button class="button is-primary is-light" id="add-recipe">Add Post</button>
         </a>
-        {{!-- <p class="has-text-white">fruit icons PNG Designed By lancarrejekiamin from <a href="https://pngtree.com"> Pngtree.com</a></p> --}}
       </div>
-    </footer>
+
 
 

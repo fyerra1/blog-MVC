@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Blog extends Model {}
+class Comment extends Model {}
 
-Blog.init(
+Comment.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,12 +11,12 @@ Blog.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        title: {
-            type: DataTypes.STRING,
-            allowNull:false,
-        },
-        content: {
-            type: DataTypes.TEXT, 
+        comment_content: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                len:[1]
+            } 
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -25,10 +25,13 @@ Blog.init(
                 key: 'id',
             },
         },
-        date_created: {
-            type: DataTypes.DATE,
+        blog_id: {
+            type: DataTypes.INTEGER,
             allowNull:false,
-            defaultValue: DataTypes.NOW,
+            references: {
+                model: 'blog',
+                key: 'id'
+            },
         },
         //consider adding an image field
     },

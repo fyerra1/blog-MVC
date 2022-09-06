@@ -2,6 +2,19 @@ const router = require('express').Router();
 const Comment = require('../../models/Comment');
 // const withAutH = require('../utils/auth');
 
+router.post('/', async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 // DELETE recipe with specified name
 // router.delete('/:id', async (req, res) => {
 //   const blogId = req.params.id;
@@ -46,18 +59,6 @@ const Comment = require('../../models/Comment');
 //     }
 //   });
 
-  router.post('/', async (req, res) => {
-    try {
-      const newComment = await Comment.create({
-        ...req.body,
-        user_id: req.session.user_id,
-      });
-  
-      res.status(200).json(newComment);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
 
   // router.put('/:id', async (req, res) => {
   //   try {

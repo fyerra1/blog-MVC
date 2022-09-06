@@ -5,7 +5,7 @@ const cardHandler = async (event) => {
     const postId = event.target.getAttribute('data-card-id');
 
     if (id) {
-        console.log(id)
+        console.log(postId)
         const response = await fetch(`api/blogs/${id}`, {
             method: 'DELETE',
         });

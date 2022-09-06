@@ -33,6 +33,11 @@ Comment.init(
                 key: 'id'
             },
         },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull:false,
+            defaultValue: DataTypes.NOW,
+        },
         //consider adding an image field
     },
     {
@@ -40,8 +45,8 @@ Comment.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'blog'
+        modelName: 'comment'
     }
 )
 
-module.exports = Blog;
+module.exports = Comment;

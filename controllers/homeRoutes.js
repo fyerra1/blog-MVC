@@ -109,4 +109,73 @@ router.get('/view-recipe/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/post-comment/:id', withAuth, async (req, res) => {
+  // try {
+  //   // Get all projects and JOIN with user data
+  //   const blogData = await Blog.findAll({
+  //     include: [
+  //       {
+  //         model: User,
+  //         attributes: ['name'],
+  //       },
+  //       {
+  //         model: Comment,
+  //         atttributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
+  //         include: [
+  //           {
+  //             model: User,
+  //             attributes: ['name']
+  //           }
+  //         ]
+  //       }
+  //     ],
+  //   });
+
+  //   // Serialize data so the template can read it
+  //   const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+  //   // Pass serialized data and session flag into template
+  //   res.render('addcomment', { 
+  //     blogs, 
+  //     logged_in: req.session.logged_in 
+  //   });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+
+
+  try {
+    const contentDatum = await Blog.findByPk(req.params.id, {});
+   
+    // const commentData = await Comment.findAll({
+    //   where: { blog_id: req.params.id}
+    // });
+    // console.log(commentData);
+    // console.log(contentDatum);
+
+
+    // Serialize data so the template can read it
+    content = contentDatum.get({ plain: true });
+    // let comments;
+    // try {
+    //   comments = commentData.map((comments) => comments.get({ plain: true }));
+    // } catch (err) {
+    //   comments = [commentData.get({ plain: true })];
+    // }
+
+    // const userDatum = await User.findByPk(content.user_id);
+    // user = userDatum.get({ plain: true });
+
+    // Pass serialized data and session flag into template
+    res.render('comment', { 
+      content,
+      // comments,
+      // user,
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

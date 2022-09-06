@@ -1,14 +1,14 @@
 const recipeHandler = async (event) => {
   event.preventDefault();
 
-  const recipeEditId = event.target.getAttribute('data-id');
+  const recipeEditId = event.target.getAttribute('data-card-id');
 
   if (recipeEditId) {
-
-    document.location.replace(`/update-recipes/${recipeEditId}`);
+    console.log(recipeEditId);
+    document.location.replace(`post-comment/${recipeEditId}`);
   }
 };
   
 document
-  .querySelector('#submit')
+  .querySelector('.project-list')
   .addEventListener('click', recipeHandler);

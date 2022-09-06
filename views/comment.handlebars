@@ -3,8 +3,23 @@
 <p>{{content.title}}</p>
 <p>{{content.content}}</p>
 <textarea class="textarea" type="text" id="new-comment"></textarea>
-<button type="submit" class="button is-primary" id="submit" data-id="{{blog.id}}">Add Comment</button>
+<button type="submit" class="button is-primary" id="submit" data-id="{{content.id}}">Add Comment</button>
 
 </div>
+
+{{!-- {{#each comments as |comment| }}
+    <div class="card my-3">
+      <div class="card-header">
+        <div class="row">
+          Comment by {{comment.username}}
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          {{comment.comment_content}}
+        </p>
+      </div>
+    </div>
+    {{/each}} --}}
 
 <script src="/js/newcomment.js"></script>

@@ -3,6 +3,7 @@ const commentHandler = async (event) => {
 
   // const title = document.querySelector('#recipe-title').value.trim();
   const comment= document.querySelector('#new-comment').value.trim();
+  const blogId = event.target.getAttribute('data-id');
   // const instructions = document.querySelector('#recipe-instructions').value.trim();
 
   console.log(comment);
@@ -10,7 +11,10 @@ const commentHandler = async (event) => {
   if (comment) {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
-      body: JSON.stringify( {comment: comment} ),
+      body: JSON.stringify( {
+        comment_content: comment,
+        blog_id: blogId,
+      } ),
       headers: {
         'Content-Type': 'application/json',
       },

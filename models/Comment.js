@@ -12,11 +12,10 @@ Comment.init(
             autoIncrement: true,
         },
         comment_content: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len:[1]
-            } 
+            type: DataTypes.STRING,
+            // validate: {
+            //     len:[1]
+            // } 
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -27,7 +26,7 @@ Comment.init(
         },
         blog_id: {
             type: DataTypes.INTEGER,
-            allowNull:false,
+            // allowNull:false,
             references: {
                 model: 'blog',
                 key: 'id'

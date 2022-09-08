@@ -7,19 +7,10 @@
 
 </div>
 
-{{!-- {{#each comments as |comment| }}
-    <div class="card my-3">
-      <div class="card-header">
-        <div class="row">
-          Comment by {{comment.username}}
-        </div>
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-          {{comment.comment_content}}
-        </p>
-      </div>
-    </div>
-    {{/each}} --}}
+{{#each comments as |comment| }}
+    
+    {{comment.comment_content}}
+    
+{{/each}}
 
 <script src="/js/newcomment.js"></script>

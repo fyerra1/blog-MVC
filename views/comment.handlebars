@@ -1,11 +1,11 @@
 <div class="comment-container card column column-gap is-vcentered">
 <div class="level">
-<p class="py-2 has-text-weight-bold is-vcentered">{{content.title}}</p>
-<p>Posted by {{user.name}} on {{format_date content.date_created}}</p>
+<p class="py-2 has-text-weight-bold is-vcentered">{{title}}</p>
+<p>Posted by {{user.name}} on {{format_date date_created}}</p>
 </div>
-<p class="py-2">{{content.content}}</p>
+<p class="py-2">{{content}}</p>
 <textarea class="textarea my-4" type="text" id="new-comment"></textarea>
-<button type="submit" class="button is-primary" id="submit" data-id={{content.id}}>Add Comment</button>
+<button type="submit" class="button is-primary" id="submit" data-id={{id}}>Add Comment</button>
 </div>
 
 
@@ -13,7 +13,7 @@
 <div class="card column column-gap is-vcentered">
     <div class="py-2">
         <p class="has-text-weight-bold">{{comment.comment_content}}</p>
-        <p>Posted by {{comment.username}} on {{format_date comment.date_created}}</p>
+        <p>Posted by {{comment.user.name}} on {{format_date comment.date_created}}</p>
     </div>
 </div>
 {{/each}}

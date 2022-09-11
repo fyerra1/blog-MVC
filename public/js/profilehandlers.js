@@ -13,7 +13,7 @@ const cardHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/profile');
         } else {
-            alert('Failed to delete project');
+            alert('Failed to delete post');
         }
     } else if (postId){
         document.location.replace(`/update-post/${postId}`);
@@ -22,5 +22,5 @@ const cardHandler = async (event) => {
 };
 
 document
-  .querySelector('.project-list')
+  .querySelector('.post-list')
   .addEventListener('click', cardHandler);

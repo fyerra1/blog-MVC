@@ -1,36 +1,24 @@
-{{!-- <section class="columns is-centered">
-<div class="column bulma-overlay-mixin" id="homepage">
-      <div class="box has-text-centered">
-        <h1 class="title">Welcome to Tech Blog!</h1>
-        <h2 class="subtitle">An easy application to publish articles, blog posts, and your thoughts and opinions</h2>
-        <p>CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.</p>
-        <p>To View, Edit, or Add to Your Blogs: Click "Profile" in the Navigation Bar</p>
-      </div>
-    </div>
-</section> --}}
 <div class="px-4 is-flex-direction-column columns project-list">
   {{#each blogs as |blog| }}
-    <div class="card column column-gap is-vcentered" data-card-id="{{blog.id}}">
-      <div class="" id="recipe-card">
-        <div class="level">
-          <p class="py-4 has-text-weight-bold" id="recipe-name" data-card-id="{{blog.id}}">{{blog.title}}</p>
-          <p>Posted by {{blog.user.name}} on {{blog.date_created}}</p>
+    <div class="card column column-gap is-vcentered" data-card-id={{blog.id}}>
+      <div data-card-id={{blog.id}}>
+        <div class="level" data-card-id={{blog.id}}>
+          <p class="py-4 has-text-weight-bold" data-card-id={{blog.id}}>{{blog.title}}</p>
+          <p data-card-id={{blog.id}}>Posted by {{blog.user.name}} on {{ format_date blog.date_created }}</p>
         </div>
-        <p class="py-4">{{blog.content}}</p> 
+        <p class="py-4" data-card-id={{blog.id}}>{{blog.content}}</p> 
       </div>
     </div>
   {{/each}}
 </div>
+   
+<div class="content has-text-centered">
+  <a href="/add-post">
+    <button class="button is-primary is-light" id="add-recipe">Add Post</button>
+  </a>
+</div>
 
-    
-       <div class="content has-text-centered">
-         <a href="/add-recipes">
-         <button class="button is-primary is-light" id="add-recipe">Add Post</button>
-        </a>
-      </div>
-
-      {{!-- <script src="../public/js/viewRecipe.js"></script> --}}
-      <script src="./../js/viewrecipe.js"></script>
+<script src="./../js/homepage.js"></script>
 
 
 

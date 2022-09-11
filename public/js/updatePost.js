@@ -1,13 +1,12 @@
-const recipeHandler = async (event) => {
+const postHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector('#recipe-title').value.trim();
-  const content = document.querySelector('#recipe-ingredients').value.trim();
-  // const instructions = document.querySelector('#recipe-instructions').value.trim();
-  const recipeId = document.querySelector('#submit').getAttribute('data-id');
+  const title = document.querySelector('#post-title').value.trim();
+  const content = document.querySelector('#post-content').value.trim();
+  const postId = document.querySelector('#submit').getAttribute('data-id');
 
-  if (recipeId && title && content) {
-    const response = await fetch(`/api/blogs/${recipeId}`, {
+  if (postId && title && content) {
+    const response = await fetch(`/api/blogs/${postId}`, {
       method: 'PUT',
       body: JSON.stringify({ 
         title, 
@@ -28,4 +27,4 @@ const recipeHandler = async (event) => {
   
 document
   .querySelector('#submit')
-  .addEventListener('click', recipeHandler);
+  .addEventListener('click', postHandler);

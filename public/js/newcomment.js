@@ -1,19 +1,15 @@
 const commentHandler = async (event) => {
   event.preventDefault();
 
-  // const title = document.querySelector('#recipe-title').value.trim();
   const comment= document.querySelector('#new-comment').value.trim();
-  const blogId = event.target.getAttribute('data-id');
-  // const instructions = document.querySelector('#recipe-instructions').value.trim();
-
-  console.log(comment);
+  const postId = event.target.getAttribute('data-id');
 
   if (comment) {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
       body: JSON.stringify( {
         comment_content: comment,
-        blog_id: blogId,
+        blog_id: postId,
       } ),
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +17,7 @@ const commentHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace(`/post-comment/${postId}`);
     } else {
       alert('Failed to add comment');
     }

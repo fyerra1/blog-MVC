@@ -13,16 +13,16 @@ Comment.init(
         },
         comment_content: {
             type: DataTypes.STRING,
-            // validate: {
-            //     len:[1]
-            // } 
+            validate: {
+                len:[1]
+            } 
         },
-        username: {
-            type: DataTypes.STRING,
-            // references: {
-            //     model: 'user',
-            //     key: 'id',
-            // },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
         },
         blog_id: {
             type: DataTypes.INTEGER,
@@ -37,7 +37,6 @@ Comment.init(
             allowNull:false,
             defaultValue: DataTypes.NOW,
         },
-        //consider adding an image field
     },
     {
         sequelize,

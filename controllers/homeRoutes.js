@@ -83,38 +83,62 @@ router.get('/update-post/:id', withAuth, async (req, res) => {
 router.get('/post-comment/:id', withAuth, async (req, res) => {
 
   try {
-    const contentDatum = await Blog.findByPk(req.params.id, {});
-    const commentData = await Comment.findAll({
-      where: { blog_id: req.params.id }
-      // include: {
-      //   model: User
-      // }
-    });
-    // console.log(commentData);
-    // console.log(contentDatum);
+    // const contentDatum = await Blog.findByPk(req.params.id, {});
+    // const commentData = await Comment.findAll({
+    //   where: { blog_id: req.params.id }
+    //   // include: {
+    //   //   model: User
+    //   // }
+    // });
+    // // console.log(commentData);
+    // // console.log(contentDatum);
 
 
-    // Serialize data so the template can read it
-    content = contentDatum.get({ plain: true });
-    let comments;
-    try {
-      comments = commentData.map((comments) => comments.get({ plain: true }));
-    } catch (err) {
-      comments = [commentData.get({ plain: true })];
-    }
+    // // Serialize data so the template can read it
+    // content = contentDatum.get({ plain: true });
+    // let comments;
+    // try {
+    //   comments = commentData.map((comments) => comments.get({ plain: true }));
+    // } catch (err) {
+    //   comments = [commentData.get({ plain: true })];
+    // }
 
-    const userDatum = await User.findByPk(content.user_id);
-    user = userDatum.get({ plain: true });
-    // console.log(user);
-    console.log(comments);
+    // const userDatum = await User.findByPk(content.user_id);
+    // user = userDatum.get({ plain: true });
+    // // console.log(user);
+    // console.log(comments);
 
-    // Pass serialized data and session flag into template
-    res.render('comment', { 
-      content,
-      comments,
-      user,
-      logged_in: req.session.logged_in 
-    });
+    // // Pass serialized data and session flag into template
+    // res.render('comment', { 
+    //   content,
+    //   comments,
+    //   user,
+    //   logged_in: req.session.logged_in 
+    // });
+    const postData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"]
+      },
+        {
+          model: Comment,
+            include: [
+              {
+                model: User,
+                attributes: ["name"]
+              } 
+              ]
+      }
+      ]
+  })
+
+  const content = postData.get({ plain: true });
+        console.log(content);
+        res.render('comment', {
+            ...content,
+            logged_in: req.session.logged_in
+        })
   } catch (err) {
     res.status(500).json(err);
     console.log(err);
